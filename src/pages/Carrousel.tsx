@@ -1,12 +1,8 @@
 
 
-import React, { use, useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import imagem from "../assets/Hanib.jpg";
-// import axios from 'axios';
-// import { getMovies } from './Api/Api';
-// const [MoviesApi, setMoviesApi] = useState<any[]>([]);
 
-// Removed invalid useState declaration that caused conflict
 
 
 const images = [

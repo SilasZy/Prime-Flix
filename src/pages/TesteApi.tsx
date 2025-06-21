@@ -1,31 +1,10 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
- import { getMovies } from './Api/Api';
+
+
+
+
+
 export const TesteApi = () => {
-
- const [MoviesApi, setMoviesApi] = useState<any[]>([])
-
-
- useEffect(() => {
-
-
-
-const FetchMovies = async () => {
-
-const movies = await getMovies();
-
-
-
-
-
-}
-//aqui e debug
-console.log(FetchMovies);
-FetchMovies();
-
-
- }, []);
-
+    
 
 
     return (
