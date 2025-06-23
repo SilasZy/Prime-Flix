@@ -1,29 +1,12 @@
 
 
 import React, { useEffect, useState } from 'react';
-import imagem from "../assets/Hanib.jpg";
 import type { MoviePopular } from './Interfaces/Interface';
 import { getMovies } from './Api/Api';
 
 
 
-const images = [
-  {
-    src: {imagem},
-    title: "Aventuras Incríveis",
-    description: "Uma jornada épica através de paisagens desconhecidas"
-  },
-  {
-    url: "https://images.pexels.com/photos/2983464/pexels-photo-2983464.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load",
-    title: "Noite Estrelada",
-    description: "Descubra os mistérios do universo noturno"
-  },
-  {
-    url: "https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load",
-    title: "Cidade Moderna",
-    description: "A vida pulsante em uma metrópole contemporânea"
-  },
-];
+
 
 
 
