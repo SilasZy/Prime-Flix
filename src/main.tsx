@@ -8,7 +8,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { NavbarA } from './pages/NavbarA';
 import { Carrousel } from './pages/Carrousel';
 import { Cards } from './pages/Cards';
-import { TesteApi } from './pages/TesteApi';
+import { Products } from './pages/Products';
+
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -30,7 +31,7 @@ createRoot(document.getElementById('root')!).render(
         />
 
         {/* Rota para TesteApi */}
-        <Route path="/teste" element={<TesteApi />} />
+        <Route path="/verInformacoes" element={<Products />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>

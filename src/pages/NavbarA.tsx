@@ -1,4 +1,5 @@
 import { MdSearch, MdApps, MdPerson, MdSettings } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 export const NavbarA = () => {
   return (
@@ -10,7 +11,7 @@ export const NavbarA = () => {
           <a href="/products" className="text-white hover:text-gray-300">Início</a>
           <a href="/about" className="text-white hover:text-gray-300">Filmes</a>
           <a href="/contact" className="text-white hover:text-gray-300">Séries</a>
-                   <a href="/teste" className="text-white hover:text-gray-300">Route teste</a>
+                   <Link to="/verInformacoes" className="text-white hover:text-gray-300">Route teste</Link>
         </div>
 
         {/* Lado direito - Ícones */}
