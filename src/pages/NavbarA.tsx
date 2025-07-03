@@ -1,17 +1,24 @@
+import { useState } from "react";
 import { MdSearch, MdApps, MdPerson, MdSettings } from "react-icons/md";
 import { Link } from "react-router-dom";
-
+// import { IoMdMenu } from "react-icons/io";
 export const NavbarA = () => {
+ const [isOpen, setIsOpen] = useState(false);
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+   
+  
   return (
     <div>
-      <nav className="bg-[#00050d] text-white flex justify-between items-center px-4 py-3">
-        {/* Lado esquerdo - Links */}
+      <nav className=" bg-[#00050d] text-white flex justify-between items-center px-4 py-3 fixed top-0 w-full shadow-md z-50">
+        
+        {/* Lado esquerdo - Links  trocar por Links do React Router */}
         <div className="flex items-center space-x-6">
-          <a href="/" className="text-white hover:text-gray-300 font-medium">Prime Video</a>
-          <a href="/products" className="text-white hover:text-gray-300">Início</a>
-          <a href="/about" className="text-white hover:text-gray-300">Filmes</a>
-          <a href="/contact" className="text-white hover:text-gray-300">Séries</a>
-                   <Link to="/verInformacoes" className="text-white hover:text-gray-300">Route teste</Link>
+          <Link to="/" className="text-white hover:text-gray-300 font-medium">Prime-Flix</Link>
+          <Link to="/products" className="text-white hover:text-gray-300">Início</Link>
+          <Link to="/about" className="text-white hover:text-gray-300">Filmes</Link>
+          <Link to="/contact" className="text-white hover:text-gray-300">Séries</Link>
         </div>
 
         {/* Lado direito - Ícones */}
@@ -32,8 +39,13 @@ export const NavbarA = () => {
             <MdPerson size={28} />
           </a>
 </div>
-       
-          
+<div className="md:hidden">
+
+
+       <button onClick={toggleMenu}>
+         {isOpen ?  'aberto' : 'fechado'}
+       </button>
+          </div>
         </div>
       </nav>
     </div>

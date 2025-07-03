@@ -1,19 +1,14 @@
 
 
-import React, { useEffect, useState } from 'react';
+import React, { use, useEffect, useState } from 'react';
 import type { MoviePopular } from './Interfaces/Interface';
-import { getMovies } from './Api/Api';
-
-
-
+import { getMovies, getTrailerMovie } from './Api/Api';
 
 
 
 
 
 export const Carrousel: React.FC = () => {
-
-
 
 
 // parte do carrousel
@@ -28,9 +23,9 @@ export const Carrousel: React.FC = () => {
             setMovies(data);
             setLoading(false);
         };
-
-        fetchMovies();
-    }, []);
+     
+    fetchMovies();
+}, []);
 
     if (loading) {
         return (
@@ -39,10 +34,14 @@ export const Carrousel: React.FC = () => {
             </div>
         );
     }
-
-
-// Suponha que você já tenha:
-// const [currentIndex, setCurrentIndex] = useState(0);
+    const getTrailer = async (movieId: number) => {
+    const response = await getTrailerMovie(movieId);
+      console.log(response);
+    };
+    if (movies.length > 0) {
+      getTrailer(movies[currentIndex].id);
+      
+    }
 
 const prevSlide = () => {
   setCurrentIndex((prev) =>
@@ -63,7 +62,7 @@ const nextSlide = () => {
 
 
     <div className="relative w-screen h-screen overflow-hidden ">
-      {/* Slides */}
+   
       {movies.map((movie, index) => (
         <div
           key={index}
@@ -76,18 +75,18 @@ const nextSlide = () => {
             alt={`Slide ${index + 1}`}
             className="object-cover w-full h-full"
           />
-          {/* Overlay escuro */}
-          <div className="absolute inset-0 bg-black/40" />
+       
+          <div className="flex flex-col items-center justify-center absolute inset-0 bg-black/40" />
           
-          {/* Container de texto estilo Prime Video */}
+        
           <div className="absolute bottom-1/4 left-30 z-10 text-white max-w-2xl">
-            <h1 className="text-5xl font-bold mb-4 drop-shadow-lg">{movie.title}</h1>
-            <p className="text-sm mb-6 drop-shadow-md">{movie.overview}</p>
+            <h2 className="text-2xl font-bold mb-4 drop-shadow-lg">{movie.title}</h2>
+            <p className="text-sm font-semibold mb-6 drop-shadow-md">{movie.overview}</p>
             <div className="flex space-x-4">
               <button className="bg-white text-black px-8 py-2 rounded-md font-semibold hover:bg-opacity-90 transition">
                 Assistir agora
               </button>
-              <button className="bg-gray-600 bg-opacity-70 text-white px-8 py-2 rounded-md font-semibold hover:bg-opacity-50 transition">
+              <button className="bg-gray-600 bg-opacity-70 text-white px-8 py-2 rounded-md font-semibold hover:bg-opacity-50 transition md:rounded-2xl">
                 Mais informações
               </button>
             </div>
@@ -96,7 +95,7 @@ const nextSlide = () => {
       ))}
    
 
-      {/* Botão anterior */}
+     
       <button
         onClick={prevSlide}
         className="absolute top-1/2 left-6 z-20 -translate-y-1/2 bg-black/40 hover:bg-black/60 hover:cursor-pointer text-white p-3 rounded-full"
@@ -106,10 +105,10 @@ const nextSlide = () => {
         </svg>
       </button>
 
-      {/* Botão próximo */}
+    
       <button
         onClick={nextSlide}
-        className="absolute top-1/2 right-6 z-20 -translate-y-1/2 bg-black/40  hover:bg-black/60 hover:cursor-pointer text-white p-3 rounded-full"
+        className="absolute top-1/2 right-6 z-20 -translate-y-1/2 bg-black/40  hover:bg-black/60 hover:cursor-pointer text-white p-3 md:rounded-full"
       >
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

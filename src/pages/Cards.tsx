@@ -1,32 +1,93 @@
-import { FaChevronRight } from "react-icons/fa";
-
+import { useEffect, useState } from "react";
+import type { SeriesPopularCards } from "./Interfaces/Interface";
+import { getSeries } from "./Api/Api";
+import Page from "./props/Pagepros";
 export const Cards = () => {
+  const [Pages, setCurrentPage] = useState(0);
+  const [series, setSeries] = useState<SeriesPopularCards[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  const itemsPerPage = 9;
+  const totalPages = Math.round(series.length / itemsPerPage);
+
+  useEffect(() => {
+    const fetchSeries = async () => {
+      const data = await getSeries();
+      setSeries(data);
+      setLoading(false);
+    };
+
+    fetchSeries();
+  }, []);
+
+    const paginatedSeries = series.slice(
+    Pages * itemsPerPage,
+    (Pages + 1) * itemsPerPage
+  );
+
+  const nextSlide = () => {
+    setCurrentPage((prev) =>
+      prev === totalPages - 1 ? 0 : prev + 1
+    );
+  }
+  const prevSlide = () => {
+    setCurrentPage((prev) =>
+      prev === 0 ? totalPages - 1 : prev - 1
+    );
+  };
+
   return (
-    <div className="flex flex-col items-start justify-start ms-14 mt-20 h-screen">
-      <div className="flex flex-row mb-4 gap-10">
-        <h1 className="text-2xl font-roboto font-semibold mb-4 drop-shadow-lg text-white">
-          Melhores Séries
-        </h1>
-        <h1 className="text-2xl font-roboto font-semibold mb-4 drop-shadow-lg text-white flex items-center gap-2 cursor-pointer ">
-          Veja mais <FaChevronRight className="text-white text-sm mt-[5px]" />
+    <div>
+      <div className="flex flex-row items-start justify-start p-4">
+        <h1 className="text-xl font-bold text-white mb-4">
+          Séries que achamos que você vai gostar
         </h1>
       </div>
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-      {/* Example card */}
-      <div className="bg-gray-800 rounded-lg shadow-md p-4 w-64">
-        <img
-        src="https://m.media-amazon.com/images/I/81p+xe8cbnL._AC_SY679_.jpg"
-        alt="Stranger Things"
-        className="rounded-md mb-3 h-40 w-full object-cover"
-        />
-        <h2 className="text-lg font-semibold text-white mb-1">Stranger Things</h2>
-        <p className="text-gray-300 text-sm mb-2">Mistério, Drama, Fantasia</p>
-        <button className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-1 px-4 rounded">
-        Assistir agora
-        </button>
+
+      <div className="mt-8">
+        {loading ? (
+          <p className="text-white">Carregando séries...</p>
+        ) : (
+          <div className="  relative flex  flex-row gap-4 items-center justify-between bg-red-700  sm:flex-row md:flex-row lg:flex-row xl:flex-row 2xl:flex-row ">
+            {paginatedSeries.map((serie, index) => (
+              <Page
+                
+                key={index}
+                id={serie.id}
+                name={serie.name}
+                poster_path={serie.poster_path}
+                first_air_date={serie.first_air_date}
+                overview={serie.overview}
+                vote_average={serie.vote_average}
+              />
+            ))}
+
+ <button 
+         onClick={prevSlide}
+           className="   absolute left-0 top-20 bg-black/40 hover:bg-black/60 hover:cursor-pointer text-white p-3 rounded-full"
+          >
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+        </svg>
+          </button>
+        
+          <button
+        onClick={nextSlide}
+           
+            className="  absolute right-0 top-20 bg-black/60 hover:bg-black/60 hover:cursor-pointer text-white p-3 rounded-full"
+          >
+            
+       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+        </svg>
+          </button>
+          </div>
+        )}
+
+        {/* Botões de navegação */}
+       
       </div>
-      {/* Add more cards as needed */}
-    </div>
     </div>
   );
 };

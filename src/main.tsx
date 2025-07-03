@@ -25,7 +25,7 @@ createRoot(document.getElementById('root')!).render(
             <>
             <NavbarA/>
               <Carrousel />
-              <Cards />
+              <Cards/>
             </>
           }
         />
