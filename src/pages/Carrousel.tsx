@@ -1,6 +1,6 @@
 
 
-import React, { use, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import type { MoviePopular } from './Interfaces/Interface';
 import { getMovies, getTrailerMovie } from './Api/Api';
 
