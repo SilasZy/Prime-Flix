@@ -44,49 +44,51 @@ export const Cards = () => {
         </h1>
       </div>
 
-      <div className="mt-8">
+      <div className="mt-8 relative">
         {loading ? (
           <p className="text-white">Carregando séries...</p>
         ) : (
-          <div className="  relative flex  flex-row gap-4 items-center justify-between bg-red-700  sm:flex-row md:flex-row lg:flex-row xl:flex-row 2xl:flex-row ">
-            {paginatedSeries.map((serie, index) => (
-              <Page
-                
-                key={index}
-                id={serie.id}
-                name={serie.name}
-                poster_path={serie.poster_path}
-                first_air_date={serie.first_air_date}
-                overview={serie.overview}
-                vote_average={serie.vote_average}
-              />
-            ))}
+          <div className="flex flex-row gap-4 items-center overflow-x-auto scrollbar-hide">
+        {/* Botão anterior */}
+        <button
+          onClick={prevSlide}
+          className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-black/40 hover:bg-black/60 text-white p-3 rounded-full"
+          aria-label="Anterior"
+          type="button"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
 
- <button 
-         onClick={prevSlide}
-           className="   absolute left-0 top-20 bg-black/40 hover:bg-black/60 hover:cursor-pointer text-white p-3 rounded-full"
-          >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-        </svg>
-          </button>
-        
-          <button
-        onClick={nextSlide}
-           
-            className="  absolute right-0 top-20 bg-black/60 hover:bg-black/60 hover:cursor-pointer text-white p-3 rounded-full"
-          >
-            
-       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        {/* Cards */}
+        <div className="flex flex-row gap-4 w-full justify-center">
+          {paginatedSeries.map((serie) => (
+            <Page
+          key={serie.id}
+          id={serie.id}
+          name={serie.name}
+          poster_path={serie.poster_path}
+          first_air_date={serie.first_air_date}
+          overview={serie.overview}
+          vote_average={serie.vote_average}
+            />
+          ))}
+        </div>
 
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-        </svg>
-          </button>
+        {/* Botão próximo */}
+        <button
+          onClick={nextSlide}
+          className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-black/40 hover:bg-black/60 text-white p-3 rounded-full"
+          aria-label="Próximo"
+          type="button"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
           </div>
         )}
-
-        {/* Botões de navegação */}
-       
       </div>
     </div>
   );
