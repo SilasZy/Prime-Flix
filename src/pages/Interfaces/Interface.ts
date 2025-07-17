@@ -8,7 +8,7 @@
 };
 
 // aqui ja é diferente aqui me retorna o name da serie                
-export type SeriesPopularCards = {
+export type SeriesPopular = {
     id: number;
     name: string;
     poster_path: string | null;

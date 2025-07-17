@@ -5,10 +5,11 @@ import 'flowbite';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import { NavbarA } from './pages/NavbarA';
-import { Carrousel } from './pages/Carrousel';
-import { Cards } from './pages/Cards';
-import { Products } from './pages/Products';
+import { NavbarA } from './pages/Layouts/NavbarA';
+import { Carrousel } from './pages/Layouts/Carrousel';
+import { Cards } from './pages/Layouts/Cards';
+import { FooterMob } from './pages/Layouts/FooterMob';
+import { SeriesCarrousel } from './pages/Layouts/Series';
 
 
 createRoot(document.getElementById('root')!).render(
@@ -17,21 +18,33 @@ createRoot(document.getElementById('root')!).render(
      
 
       <Routes>
-        {/* Página inicial (com Carrousel e Cards) */}
+
+
         <Route
 
           path="/"
+        
           element={
             <>
             <NavbarA/>
               <Carrousel />
               <Cards/>
+              <FooterMob/>
             </>
           }
         />
-
-        {/* Rota para TesteApi */}
-        <Route path="/verInformacoes" element={<Products />} />
+     
+        <Route
+          path="/series"
+          element={
+            <>
+              <NavbarA />
+              <SeriesCarrousel />
+              <Cards />
+              <FooterMob />
+            </>
+          }
+        />
       </Routes>
     </BrowserRouter>
   </StrictMode>

@@ -3,12 +3,8 @@
 // const [series, setSeries] = useState<moviePopularCards[]>([]);
 
 
-import type { SeriesPopularCards } from "../Interfaces/Interface";
-
-
-
-
-export default (props: SeriesPopularCards) => {
+import type { SeriesPopular } from "../Interfaces/Interface";
+export default (props: SeriesPopular) => {
 // aqui so me retorna a img da serie
     return (
     

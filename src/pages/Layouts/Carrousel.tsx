@@ -1,16 +1,16 @@
 
 
 import React, { useEffect, useState } from 'react';
-import type { MoviePopular } from './Interfaces/Interface';
-import { getMovies, getTrailerMovie } from './Api/Api';
+import type { MoviePopular } from '../Interfaces/Interface';
+import { getMovies, getTrailerMovie } from '../Api/Api';
+import { Loading } from './components/Loading';
+
 
 
 
 
 
 export const Carrousel: React.FC = () => {
-
-
 // parte do carrousel
   const [currentIndex, setCurrentIndex] = useState(0);
    const [movies, setMovies] = useState<MoviePopular[]>([]);
@@ -30,7 +30,7 @@ export const Carrousel: React.FC = () => {
     if (loading) {
         return (
             <div className="flex items-center justify-center h-screen">
-                <p className="text-white">Carregando filmes...</p>
+                <Loading />
             </div>
         );
     }
@@ -75,13 +75,13 @@ const nextSlide = () => {
             alt={`Slide ${index + 1}`}
             className="object-cover w-full h-full"
           />
-       
+       0
           <div className="flex flex-col items-center justify-center absolute inset-0 bg-black/40" />
           
         
           <div className="absolute bottom-1/4 left-30 z-10 text-white max-w-2xl">
-            <h2 className="text-2xl font-bold mb-4 drop-shadow-lg">{movie.title}</h2>
-            <p className="text-sm font-semibold mb-6 drop-shadow-md">{movie.overview}</p>
+            <h2 className="hidden sm:block text-2xl font-bold mb-4 drop-shadow-lg ">{movie.title}</h2>
+            <p className=" hidden text-sm font-semibold mb-6 drop-shadow-md  ">{movie.overview}</p>
             <div className="flex space-x-4">
               <button className="bg-white text-black px-8 py-2 rounded-md font-semibold hover:bg-opacity-90 transition">
                 Assistir agora
@@ -108,7 +108,7 @@ const nextSlide = () => {
     
       <button
         onClick={nextSlide}
-        className="absolute top-1/2 right-6 z-20 -translate-y-1/2 bg-black/40  hover:bg-black/60 hover:cursor-pointer text-white p-3 md:rounded-full"
+        className="absolute top-1/2 right-6 z-20 -translate-y-1/2 bg-black/40  hover:bg-black/60 hover:cursor-pointer text-white p-3 rounded-full"
       >
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
