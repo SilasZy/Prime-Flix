@@ -79,11 +79,11 @@ const nextSlide = () => {
           <div className="flex flex-col items-center justify-center absolute inset-0 bg-black/40" />
           
         
-          <div className="absolute bottom-1/4 left-30 z-10 text-white max-w-2xl">
+          <div className="absolute bottom-1/4 left-5 z-10 text-white max-w-2xl">
             <h2 className="hidden sm:block text-2xl font-bold mb-4 drop-shadow-lg ">{movie.title}</h2>
             <p className=" hidden text-sm font-semibold mb-6 drop-shadow-md  ">{movie.overview}</p>
-            <div className="flex space-x-4">
-              <button className="bg-white text-black px-8 py-2 rounded-md font-semibold hover:bg-opacity-90 transition">
+            <div className="flex justify-start gap-4">
+              <button className="bg-white text-black px-8 py-2 rounded-md font-semibold hover:bg-opacity-90 transition ">
                 Assistir agora
               </button>
               <button className="bg-gray-600 bg-opacity-70 text-white px-8 py-2 rounded-md font-semibold hover:bg-opacity-50 transition md:rounded-2xl">

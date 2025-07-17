@@ -56,10 +56,10 @@
             return [];
         }
     };
-    export const getMoviesGenero = async ( getMoviesGenero: number, page = 1) => {
-
+    export const getMoviesGenero = async ( getMoviesGenero: number) => {
+const aleatoryPage = Math.floor(Math.random() * 10) + 1; 
         try {
-            const response = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=pt-BR&with_genres=${getMoviesGenero}&page=${page}`);
+            const response = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=pt-BR&with_genres=${getMoviesGenero}&page=${aleatoryPage}`);
             if (!response.ok) {
                 throw new Error('Erro ao buscar filmes de terror');
             }

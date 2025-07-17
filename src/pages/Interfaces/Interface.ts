@@ -15,6 +15,12 @@ export type SeriesPopular = {
     first_air_date: string;
     overview: string;
     vote_average: number;
+  title: string;
+  items: SeriesPopular[];
+  loading: boolean;
+  itemsPerPage?: number;
+
+
     //possivelmente pegar por genero
     // genre_ids: number[];
 };
