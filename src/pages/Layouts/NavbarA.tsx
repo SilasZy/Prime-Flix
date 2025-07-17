@@ -20,6 +20,7 @@ export const NavbarA = () => {
     setTimeout(() => {
       setLoading(false);
     }, 2000);
+
     return (
       <Loading />
     );
@@ -30,7 +31,7 @@ export const NavbarA = () => {
 
   return (
     <div>
-      <nav className=" bg-[#00050d] text-white flex justify-between items-center px-4 py-3 fixed top-0 w-full shadow-md z-50">
+      <nav className=" bg-[#00050d] text-white flex justify-between items-center px-4 py-3  top-0 w-full shadow-md z-50">
         
         {/* Lado esquerdo - Links  trocar por Links do React Router */}
         <div className="flex items-center space-x-6">

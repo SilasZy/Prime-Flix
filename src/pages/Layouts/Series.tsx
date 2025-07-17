@@ -9,6 +9,8 @@ export const SeriesCarrousel: React.FC = () => {
      const [currentIndex, setCurrentIndex] = useState(0);
       const [series, setSeries] = useState<SeriesPopular[]>([]);
        const [loading, setLoading] = useState(true);
+     
+
    
    
        useEffect(() => {
@@ -17,6 +19,8 @@ export const SeriesCarrousel: React.FC = () => {
                setSeries(data);
                setLoading(false);
            };
+      
+
 
        fetchSeries();
    }, []);

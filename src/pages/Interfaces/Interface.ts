@@ -1,12 +1,12 @@
- export type MoviePopular = {
-    id: number;
-    title: string;
-    poster_path: string | null;
-    release_date: string;
-    overview: string;
-    vote_average: number;
+export type MoviePopular = {
+  id: number;
+  title: string;
+  poster_path: string | null;
+  release_date: string;
+  overview: string;
+  vote_average: number;
+  cast: CastMember[]; // ⬅️ Adicionado aqui
 };
-
 // aqui ja é diferente aqui me retorna o name da serie                
 export type SeriesPopular = {
     id: number;
@@ -24,3 +24,11 @@ export type SeriesPopular = {
     //possivelmente pegar por genero
     // genre_ids: number[];
 };
+
+export type CastMember = {
+  id: number;
+  name: string;
+  character: string;
+  profile_path: string | null;
+};
+

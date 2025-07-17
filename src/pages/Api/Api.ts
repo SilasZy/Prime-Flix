@@ -40,6 +40,20 @@
         }
     };
            
+  export const getCast = async (movieId: number) => {
+        try {
+            const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${API_KEY}&language=pt-BR`);
+            if (!response.ok) {
+                throw new Error('Erro ao buscar filmes');
+            }
+            const data = await response.json();
+            return data.cast;
+        } catch (error) {
+            console.error('Erro na API:', error);
+            return [];
+        }
+}
+
 
 
     export const getTrailerMovie = async (movieId: number) => {
@@ -70,5 +84,17 @@ const aleatoryPage = Math.floor(Math.random() * 10) + 1;
             return [];
         }
     };
-
+export const getSeriesGenero = async (getSeriesGenero: number) => {
+        try {
+            const response = await fetch(`https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&language=pt-BR&with_genres=${getSeriesGenero}`);
+            if (!response.ok) {
+                throw new Error('Erro ao buscar séries');
+            }
+            const data = await response.json();
+            return data.results;
+        } catch (error) {
+            console.error('Erro na API:', error);
+            return [];
+        }
+    };
     
