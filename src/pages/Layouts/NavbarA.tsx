@@ -131,10 +131,13 @@ export const NavbarA = () => {
       )}
           </div>
 
-          <Link onClick={() => setLoading(true)} to="/" className=" text-lg text-white hover:text-gray-300 font-medium ">Prime-Flix</Link>
-          <Link onClick={() => setLoading(true)} to="/" className=" hidden md:block text-white hover:text-gray-300 font-medium ">Início</Link>
-          <Link to="/about" className=" hidden md:block text-white hover:text-gray-300 font-medium">Filmes</Link>
-          <Link onClick={() => setLoading(true)} to="/series" className="hidden md:block text-white hover:text-gray-300 font-medium">Séries</Link>
+          <Link onClick={() => setLoading(true)} to="/" className=" text-lg text-white hover:text-gray-300 font-medium  ">Prime-Flix</Link>
+          <Link onClick={() => setLoading(true)} to="/" className=" hidden md:block text-white   hover:bg-[#e5e6e7] hover:text-black   font-medium rounded-md px-2 py-2 text-center ">Início</Link>
+          <Link to="/about" className=" hidden md:block text-white  hover:bg-[#e5e6e7] hover:text-black   font-medium rounded-md px-2 py-2 text-center">Filmes</Link>
+          
+ <Link onClick={() => setLoading(true)} to="/series" className="hidden md:block text-white hover:bg-[#e5e6e7] hover:text-black   font-medium rounded-md px-2 py-2 text-center">Séries</Link>
+      
+         
         </div>
 
         {/* Lado direito - Ícones */}
@@ -148,7 +151,7 @@ export const NavbarA = () => {
   <input
     type="text"
     placeholder="Pesquisar..."
-    className="rounded-sm p-4  bg-[#00050d] outline-none text-white text-sm w-48 focus:ring-2 focus:ring-blue-500 transition-all"
+    className="rounded-sm  bg-[#00050d] outline-none text-white text-sm w-48 focus:ring-2 focus:ring-blue-500 transition-all"
     autoFocus
   />
  
@@ -163,7 +166,7 @@ export const NavbarA = () => {
             <MdSettings size={20} />
 
           </Link>
-          <div className="hidden md:block bg-blue-600 p-2 rounded-full  hover:border-4  transition-colors">
+          <div className="hidden md:block  bg-blue-600 p-2 rounded-full  hover:border-4  transition-colors">
             <Link to="/profile" className="text-[#c1dce7] hover:text-gray-300">
               <MdPerson size={28} />
             </Link>

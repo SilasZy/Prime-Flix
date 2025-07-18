@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import type { MoviePopular } from '../Interfaces/Interface';
 import { getMovies } from '../Api/Api';
 import { Loading } from './components/Loading';
+import { Link } from 'react-router-dom';
 
 
 
@@ -97,11 +98,14 @@ const nextSlide = () => {
 
  
 
-    <button  className="w-10 h-10 flex items-center justify-center bg-[#41474f] text-white rounded-full hover:bg-[#444]/90 transition shadow-md">
+    <Link to={`/movie/${movie.id}`} 
+    
+    
+    className="w-10 h-10 flex items-center justify-center bg-[#41474f] text-white rounded-full hover:bg-[#444]/90 transition shadow-md">
       <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M12 2a10 10 0 100 20 10 10 0 000-20z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M12 2a10 10 0 100 20 10 10 0 000-20z"  />
       </svg>
-    </button>
+    </Link>
   </div>
 </div>
 

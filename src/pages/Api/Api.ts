@@ -100,3 +100,16 @@ export const getSeriesGenero = async (getSeriesGenero: number) => {
         }
     };
     
+    export const getElenco = async (movieId: number) => {
+        try {
+            const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${API_KEY}&language=pt-BR`);
+            if (!response.ok) {
+                throw new Error('Erro ao buscar filmes');
+            }
+            const data = await response.json();
+            return data.cast;
+        } catch (error) {
+            console.error('Erro na API:', error);
+            return [];
+        }
+    };
