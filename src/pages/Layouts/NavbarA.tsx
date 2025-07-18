@@ -148,7 +148,7 @@ export const NavbarA = () => {
   <input
     type="text"
     placeholder="Pesquisar..."
-    className="rounded-sm p-2 bg-[#00050d] outline-none text-white text-sm w-48 focus:ring-2 focus:ring-blue-500 transition-all"
+    className="rounded-sm p-4  bg-[#00050d] outline-none text-white text-sm w-48 focus:ring-2 focus:ring-blue-500 transition-all"
     autoFocus
   />
  
