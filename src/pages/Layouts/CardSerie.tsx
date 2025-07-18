@@ -6,7 +6,9 @@ import { CardsSeries } from "./components/CardsSeries";
 
 export const CardSerie = () => {
   const [series, setSeries] = useState<SeriesPopular[]>([]);
-  const [faroeste, setFaroeste] = useState<SeriesPopular[]>([]);
+  const [faroesteSeries, setFaroeste] = useState<SeriesPopular[]>([]);
+  const [SeriesDrama, setSeriesDrama] = useState<SeriesPopular[]>([]);
+
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -16,16 +18,19 @@ export const CardSerie = () => {
       setLoading(false);
     };
 
-   const fetchNovelaSeries = async () => {
+   const fetchFaroesteSeries = async () => {
      const data = await getSeriesGenero(37);
      setFaroeste(data);
    }
+   const fetchDramaSeries = async () => {
+    const data = await getSeriesGenero(16);
+    setSeriesDrama(data);
+  }
 
 
-
-   fetchNovelaSeries();
-    fetchSeries();
-  
+  fetchSeries();
+   fetchFaroesteSeries();
+   fetchDramaSeries();
   
   }, []);
 
@@ -37,11 +42,15 @@ export const CardSerie = () => {
         loading={loading}
       />
       <CardsSeries
-        title="Faroeste"
-        items={faroeste}
+        title="Séries de Faroeste"
+        items={faroesteSeries}
         loading={loading}
       />
-
+     <CardsSeries
+        title="Séries infantis e para a família"
+        items={SeriesDrama}
+        loading={loading}
+      />
       
     </div>
   );

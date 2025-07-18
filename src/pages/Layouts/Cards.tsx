@@ -40,7 +40,7 @@ fetchAnimationMovies();
   return (
     <div>
       <CardsMovie
-        title="Melhores Séries"
+        title="Séries que voce possa gostar"
         items={series}
         loading={loading}
       />

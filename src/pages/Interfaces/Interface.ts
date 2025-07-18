@@ -5,7 +5,7 @@ export type MoviePopular = {
   release_date: string;
   overview: string;
   vote_average: number;
-  cast: CastMember[]; // ⬅️ Adicionado aqui
+  cast: Elenco[]; // ⬅️ Adicionado aqui
 };
 // aqui ja é diferente aqui me retorna o name da serie                
 export type SeriesPopular = {
@@ -25,7 +25,7 @@ export type SeriesPopular = {
     // genre_ids: number[];
 };
 
-export type CastMember = {
+export type Elenco = {
   id: number;
   name: string;
   character: string;

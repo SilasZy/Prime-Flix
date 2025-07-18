@@ -27,6 +27,8 @@
 
      const aleatoryPage = Math.floor(Math.random() * 10) + 1; // Gera um número aleatório entre 1 e 10
 
+     //funcao pra serie mais votada
+   
             const API_KEY = 'd6cd063195f11b2ccd29dd8d8929b3f4';
             const response = await fetch(`https://api.themoviedb.org/3/tv/popular?api_key=${API_KEY}&language=pt-BR&page=${aleatoryPage}`);
             if (!response.ok) {
