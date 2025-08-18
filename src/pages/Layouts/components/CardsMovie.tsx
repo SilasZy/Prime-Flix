@@ -4,6 +4,7 @@ import Page from "../../props/Pagepros";
 import { Loading } from "./Loading";
 import type { SeriesPopular } from "../../Interfaces/Interface";
 
+
 interface Props {
   title: string;
   items: SeriesPopular[];
@@ -50,8 +51,11 @@ export const CardsMovie = ({ title, items, loading, itemsPerPage = 9 }: Props) =
 
       
           <div className="flex flex-row gap-4 w-full justify-center">
+            
             {paginatedItems.map((item) => (
+            
               <Page
+              
                 key={item.id}
                 id={item.id}
                 name={item.name}
@@ -62,7 +66,7 @@ export const CardsMovie = ({ title, items, loading, itemsPerPage = 9 }: Props) =
             ))}
           </div>
 
-          {/* Botão próximo */}
+          {/* Botão próximo */} 
           <button
             onClick={nextSlide}
             className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-black/40 hover:bg-black/60 text-white p-3 rounded-full"

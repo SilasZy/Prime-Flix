@@ -113,16 +113,16 @@ export const NavbarA = () => {
           </Link>
         </div>
 
-        {/* DIREITA */}
+   
         <div className="flex items-center space-x-5 relative">
-          {/* BOTÃO DE PESQUISA */}
+        
           <MdSearch
             size={20}
             className=" hidden md:block text-white hover:text-gray-300 cursor-pointer"
             onClick={toggleSearchBar}
           />
 
-          {/* BARRA DE PESQUISA */}
+        
           {isOpenSearchBar && (
             <div className="relative">
               <input
@@ -134,7 +134,7 @@ export const NavbarA = () => {
                 autoFocus
               />
 
-              {/* Resultados em tempo real */}
+         
               {searchTerm && (
                 <div className="absolute top-10 left-0 w-64 bg-[#0a1623] rounded-lg shadow-lg p-2 max-h-64 overflow-y-auto z-50">
                   {searchLoading ? (
