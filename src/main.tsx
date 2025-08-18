@@ -12,7 +12,7 @@ import { FooterMob } from './pages/Layouts/FooterMob';
 import { SeriesCarrousel } from './pages/Layouts/Series';
 
 import { CardSerie } from './pages/Layouts/CardSerie';
-import { DetalhesElenco } from './pages/Layouts/DetalhesElenco';
+import { Detalhes } from './pages/Layouts/Detalhes';
 
 
 
@@ -50,16 +50,16 @@ createRoot(document.getElementById('root')!).render(
           }
         />
 <Route 
-
-path='/movie'
-element={
-  <>
-    <NavbarA />
-    <DetalhesElenco />
-    <FooterMob />
-  </>
-}
+  path='/detalhes_movie/:id'
+  element={
+    <>
+      <NavbarA />
+      <Detalhes />
+      <FooterMob />
+    </>
+  }
 />
+
       
       </Routes>
     </BrowserRouter>

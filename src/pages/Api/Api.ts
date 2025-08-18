@@ -113,3 +113,22 @@ export const getSeriesGenero = async (getSeriesGenero: number) => {
             return [];
         }
     };
+
+
+    export const getMovieDetails = async (movieId: number) => {
+  try {
+    const response = await fetch(
+      `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}&language=pt-BR`
+    );
+    if (!response.ok) {
+      throw new Error('Erro ao buscar detalhes do filme');
+    }
+    return await response.json();
+  } catch (error) {
+    console.error('Erro na API:', error);
+    throw error;
+  }
+};
+
+
+ 

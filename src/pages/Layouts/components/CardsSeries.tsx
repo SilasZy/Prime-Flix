@@ -26,6 +26,7 @@ export const CardsSeries = ({ title, items, loading, itemsPerPage = 9 }: Props) 
   };
 
  
+  
 
   return (
     <div className="mt-8 relative">
