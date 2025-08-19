@@ -10,7 +10,7 @@ const API_KEY = "d6cd063195f11b2ccd29dd8d8929b3f4";
 export const NavbarA = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenSearchBar, setIsOpenSearchBar] = useState(false);
-  const [isOpenSearchBarMobile, setIsOpenSearchBarMobile] = useState(false);
+
   const [loading, setLoading] = useState(false);
 
   const [searchTerm, setSearchTerm] = useState("");
@@ -20,7 +20,7 @@ export const NavbarA = () => {
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const toggleSearchBar = () => setIsOpenSearchBar(!isOpenSearchBar);
-  const toggleSearchBarMobile = () => setIsOpenSearchBarMobile(!isOpenSearchBarMobile);
+
 
 
   if (loading) {
