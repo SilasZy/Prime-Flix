@@ -31,16 +31,16 @@ export const CardsMovie = ({ title, items, loading, itemsPerPage = 9 }: Props) =
   };
 
   return (
-    <div className="mt-8 relative">
-      <h1 className="text-white font-medium text-2xl">{title}</h1>
+    <div className="mt-8 relative ">
+      <h1 className="text-white font-medium text-2xl pb-5 lg:ms-25 ">{title}</h1>
       {loading ? (
         <Loading />
       ) : (
-        <div className="flex flex-row gap-4 items-center overflow-x-auto scrollbar-hide">
+        <div className="flex flex-row gap-6 items-center overflow-x-auto scrollbar-hide">
           {/* Botão anterior */}
           <button
             onClick={prevSlide}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-black/40 hover:bg-black/60 text-white p-3 rounded-full"
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-black/40 hover:bg-black/60 text-white p-3 rounded-full cursor-pointer"
             aria-label="Anterior"
             type="button"
           >
@@ -55,7 +55,7 @@ export const CardsMovie = ({ title, items, loading, itemsPerPage = 9 }: Props) =
             {paginatedItems.map((item) => (
             
               <Page
-              
+            
                 key={item.id}
                 id={item.id}
                 name={item.name}
@@ -69,7 +69,7 @@ export const CardsMovie = ({ title, items, loading, itemsPerPage = 9 }: Props) =
           {/* Botão próximo */} 
           <button
             onClick={nextSlide}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-black/40 hover:bg-black/60 text-white p-3 rounded-full"
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-black/40 hover:bg-black/60 text-white p-3 rounded-full cursor-pointer"
             aria-label="Próximo"
             type="button"
           >

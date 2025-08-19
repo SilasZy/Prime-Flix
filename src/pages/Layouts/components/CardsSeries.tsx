@@ -24,13 +24,13 @@ export const CardsSeries = ({ title, items, loading, itemsPerPage = 9 }: Props) 
   const nextSlide = () => {
     setPage((prev) => (prev === totalPages - 1 ? 0 : prev + 1));
   };
-
- 
-  
+  const prevSlide = () => {
+    setPage((prev) => (prev === 0 ? totalPages - 1 : prev - 1));
+  };
 
   return (
     <div className="mt-8 relative">
-      <h1 className="text-white font-medium text-2xl">{title}</h1>
+      <h1 className="text-white font-medium text-2xl pb-5 ms-25">{title}</h1>
       {loading ? (
         <Loading />
       ) : (
@@ -53,16 +53,42 @@ export const CardsSeries = ({ title, items, loading, itemsPerPage = 9 }: Props) 
           </div>
 
           {/* Botão próximo */}
-          <button
-            onClick={nextSlide}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-black/40 hover:bg-black/60 text-white p-3 rounded-full"
-            aria-label="Próximo"
-            type="button"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
+
+{/* Botão PREV (esquerda) */}
+<button
+  onClick={prevSlide}
+  className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-black/40 hover:bg-black/60 text-white p-3 rounded-full cursor-pointer"
+  aria-label="Anterior"
+  type="button"
+>
+  <svg
+    className="w-6 h-6 pointer-events-none"
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+  >
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+  </svg>
+</button>
+
+{/* Botão NEXT (direita) */}
+<button
+  onClick={nextSlide}
+  className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-black/40 hover:bg-black/60 text-white p-3 rounded-full cursor-pointer"
+  aria-label="Próximo"
+  type="button"
+>
+  <svg
+    className="w-6 h-6 pointer-events-none"
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+  >
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+  </svg>
+</button>
+
+
         </div>
       )}
     </div>

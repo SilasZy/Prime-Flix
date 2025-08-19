@@ -60,7 +60,17 @@ createRoot(document.getElementById('root')!).render(
   }
 />
 
-      
+<Route
+  path='/detalhes_serie/:id'
+  element={
+    <>
+      <NavbarA />
+      <Detalhes />
+      <FooterMob />
+    </>
+  }
+/>
+
       </Routes>
     </BrowserRouter>
   </StrictMode>
