@@ -62,7 +62,7 @@ export const CardsMovie = ({ title, items, loading, itemsPerPage = 9 }: Props) =
                 poster_path={item.poster_path}
                 first_air_date={item.first_air_date}
                 overview={item.overview}
-                vote_average={item.vote_average} title={""} items={[]} loading={false}              />
+                vote_average={item.vote_average} title={""} items={[]} loading={false} media_type={"item.media_type"}              />
             ))}
           </div>
 

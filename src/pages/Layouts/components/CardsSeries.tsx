@@ -1,8 +1,8 @@
 // components/CarouselCard.tsx
 import { useState } from "react";
-import Page from "../../props/Pagepros";
 import { Loading } from "./Loading";
 import type { SeriesPopular } from "../../Interfaces/Interface";
+import PagepropsSeries from "../../props/PagepropsSeries";
 
 interface Props {
   title: string;
@@ -41,14 +41,15 @@ export const CardsSeries = ({ title, items, loading, itemsPerPage = 9 }: Props) 
       
           <div className="flex flex-row gap-4 w-full justify-center">
             {paginatedItems.map((item) => (
-              <Page
+              <PagepropsSeries
                 key={item.id}
                 id={item.id}
                 name={item.name}
+
                 poster_path={item.poster_path}
                 first_air_date={item.first_air_date}
                 overview={item.overview}
-                vote_average={item.vote_average} title={""} items={[]} loading={false}              />
+                vote_average={item.vote_average} title={item.title} items={[]} loading={false} media_type={"item.media_type"}              />
             ))}
           </div>
 

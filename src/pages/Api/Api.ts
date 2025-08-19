@@ -128,7 +128,47 @@ export const getSeriesGenero = async (getSeriesGenero: number) => {
     console.error('Erro na API:', error);
     throw error;
   }
+
+
+    }
+
+      export const getSeriesCast = async (seriesId: number) => {
+  try {
+    const response = await fetch(`https://api.themoviedb.org/3/tv/${seriesId}/credits?api_key=${API_KEY}&language=pt-BR`);
+    if (!response.ok) {
+      throw new Error('Erro ao buscar elenco da série');
+    }
+    const data = await response.json();
+    return data.cast;
+  } catch (error) {
+    console.error('Erro na API:', error);
+    return [];
+  }
 };
 
-
- 
+export const getSerieTrailer = async (seriesId: number) => {
+  try {
+    const response = await fetch(`https://api.themoviedb.org/3/tv/${seriesId}/videos?api_key=${API_KEY}&language=pt-BR`);
+    if (!response.ok) {
+      throw new Error('Erro ao buscar trailers da série');
+    }
+    const data = await response.json();
+    return data.results;
+  } catch (error) {
+    console.error('Erro na API:', error);
+    return [];
+  }
+};
+export const getSeriesDetails = async (seriesId: number) => {
+  try {
+    const response = await fetch(`https://api.themoviedb.org/3/tv/${seriesId}?api_key=${API_KEY}&language=pt-BR`);
+    if (!response.ok) {
+      throw new Error('Erro ao buscar detalhes da série');
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Erro na API:', error);
+    return null;
+  }
+};

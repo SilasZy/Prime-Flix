@@ -13,7 +13,7 @@ import { SeriesCarrousel } from './pages/Layouts/Series';
 
 import { CardSerie } from './pages/Layouts/CardSerie';
 import { Detalhes } from './pages/Layouts/Detalhes';
-
+import { DetalhesSeries } from './pages/Layouts/components/DetalhesSerie';
 
 
 createRoot(document.getElementById('root')!).render(
@@ -65,7 +65,7 @@ createRoot(document.getElementById('root')!).render(
   element={
     <>
       <NavbarA />
-      <Detalhes />
+      <DetalhesSeries />
       <FooterMob />
     </>
   }

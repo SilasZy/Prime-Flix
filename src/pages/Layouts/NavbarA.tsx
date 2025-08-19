@@ -10,7 +10,6 @@ const API_KEY = "d6cd063195f11b2ccd29dd8d8929b3f4";
 export const NavbarA = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenSearchBar, setIsOpenSearchBar] = useState(false);
-
   const [loading, setLoading] = useState(false);
 
   const [searchTerm, setSearchTerm] = useState("");
@@ -20,7 +19,7 @@ export const NavbarA = () => {
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const toggleSearchBar = () => setIsOpenSearchBar(!isOpenSearchBar);
-
+  
 
 
   if (loading) {
@@ -50,10 +49,11 @@ export const NavbarA = () => {
         const moviesData = await moviesRes.json();
         const seriesData = await seriesRes.json();
 
-        setResults([
-          ...(moviesData.results || []),
-          ...(seriesData.results || []),
-        ]);
+             const moviesWithType = (moviesData.results || []).map((item: any) => ({ ...item, media_type: 'movie' }));
+        const seriesWithType = (seriesData.results || []).map((item: any) => ({ ...item, media_type: 'tv' }));
+        
+        setResults([...moviesWithType, ...seriesWithType]);
+
       } catch (err) {
         console.error("Erro na pesquisa:", err);
         setResults([]);
@@ -163,7 +163,9 @@ useEffect(() => {
             key={item.id}
             className="flex items-center space-x-2 p-2 hover:bg-[#1c2633] rounded cursor-pointer"
           >
-            <Link to={`/detalhes_movie/${item.id}`} className="flex items-center space-x-2">
+            <Link  to={item.media_type === 'movie' 
+                                ? `/detalhes_movie/${item.id}` 
+                                : `/detalhes_serie/${item.id}`}  className="flex items-center space-x-2">
               {item.poster_path ? (
                 <div className="w-10 h-14">
                   <img
@@ -245,7 +247,9 @@ useEffect(() => {
                         key={item.id}
                         className="flex items-center space-x-2 p-2 hover:bg-[#1c2633] rounded cursor-pointer"
                       >
-                        <Link to={`/detalhes_movie/${item.id}`} className="flex items-center space-x-2">
+                        <Link   to={item.media_type === 'movie' 
+                                ? `/detalhes_movie/${item.id}` 
+                                : `/detalhes_serie/${item.id}`}  className="flex items-center space-x-2">
                           {item.poster_path ? (
                             <div className="w-10 h-14">
                               <img
@@ -259,8 +263,12 @@ useEffect(() => {
                               N/A
                             </div>
                           )}
-                          <span className="text-sm truncate">
+                          <span className="text-sm truncate ">
                             {item.title || item.name}
+                            <span className="text-gray-400 text-xs ml-1">
+                              {item.release_date ? new Date(item.release_date).getFullYear() :
+                                item.first_air_date ? new Date(item.first_air_date).getFullYear() : 'N/A'}
+                            </span>
                           </span>
                         </Link>
                       </div>

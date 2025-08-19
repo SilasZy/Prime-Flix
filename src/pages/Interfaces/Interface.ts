@@ -9,13 +9,14 @@ export type MoviePopular = {
 };
 // aqui ja é diferente aqui me retorna o name da serie                
 export type SeriesPopular = {
+  media_type: string;
     id: number;
-    name: string;
+    name?: string;
     poster_path: string | null;
     first_air_date: string;
     overview: string;
     vote_average: number;
-  title: string;
+  title?: string;
   items: SeriesPopular[];
   loading: boolean;
   itemsPerPage?: number;

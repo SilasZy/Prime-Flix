@@ -8,7 +8,7 @@ import type { SeriesPopular } from "../Interfaces/Interface";
 export default (props: SeriesPopular) => {
 // aqui so me retorna a img do filme/Serie
     return (
-        <Link to={`/detalhes_movie/${props.id}`}>
+        <Link to={`/detalhes_movie/${props.id}`}> 
   <div className="w-[120px] h-[180px] sm:w-[100px] sm:h-[150px] md:w-[140px] md:h-[210px]">
     <img
       src={`https://image.tmdb.org/t/p/original${props.poster_path}`}
