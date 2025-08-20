@@ -205,7 +205,7 @@ useEffect(() => {
             Prime-Flix
           </Link>
           <Link to="/" className=" hidden md:block text-white hover:bg-[#e5e6e7] hover:text-black font-medium rounded-md px-2 py-2 text-center">
-            Início
+            Iníciosdsd
           </Link>
           <Link to="/" className=" hidden md:block text-white hover:bg-[#e5e6e7] hover:text-black font-medium rounded-md px-2 py-2 text-center">
             Filmes
