@@ -26,11 +26,15 @@ body {
 }
 
 
+/* Tablets e telas médias */
 @media (min-width: 768px) {
-  .ms-25 {
+  .ms {
     margin-left: 6%;
   }
 }
+
+
+
 
 
 

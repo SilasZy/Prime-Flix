@@ -32,7 +32,7 @@ export const CardsMovie = ({ title, items, loading, itemsPerPage = 9 }: Props) =
 
   return (
     <div className="mt-8 relative ">
-      <h1 className="text-white font-medium text-2xl pb-5 lg:ms-25 ">{title}</h1>
+      <h1 className="text-white font-medium text-2xl pb-5 ml-[25px] ">{title}</h1>
       {loading ? (
         <Loading />
       ) : (
