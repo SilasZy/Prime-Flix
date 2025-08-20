@@ -118,7 +118,7 @@ export const DetalhesSeries = () => {
         </div>
       </div>
 
-      {/* Trailers */}
+ 
       {trailers.length > 0 && (
         <div className="mt-8">
           <h2 className="text-xl font-semibold mb-3">Trailer</h2>
@@ -141,7 +141,7 @@ export const DetalhesSeries = () => {
         <h2 className="text-white font-bold text-2xl mb-4">Elenco & Equipe</h2>
       </div>
 
-      <div className="flex flex-wrap justify-center gap-4">
+      <div className="flex flex-wrap  justify-center gap-4">
         {cast.map((actor) => (
           <div key={actor.id} className="text-center">
             <img
@@ -153,8 +153,8 @@ export const DetalhesSeries = () => {
               alt={actor.name}
               className="rounded-lg mx-auto mb-2 w-full h-auto"
             />
-            <p className="text-sm text-white truncate">{actor.name}</p>
-            <p className="text-sm text-gray-500 truncate">{actor.character}</p>
+            <p className="text-sm text-white break-words max-w-[180px]">{actor.name}</p>
+<p className="text-sm text-gray-500 break-words max-w-[180px]">{actor.character}</p>
           </div>
         ))}
       </div>

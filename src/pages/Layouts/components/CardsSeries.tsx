@@ -53,9 +53,9 @@ export const CardsSeries = ({ title, items, loading, itemsPerPage = 9 }: Props) 
             ))}
           </div>
 
-          {/* Botão próximo */}
+       
 
-{/* Botão PREV (esquerda) */}
+
 <button
   onClick={prevSlide}
   className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-black/40 hover:bg-black/60 text-white p-3 rounded-full cursor-pointer"
@@ -72,7 +72,7 @@ export const CardsSeries = ({ title, items, loading, itemsPerPage = 9 }: Props) 
   </svg>
 </button>
 
-{/* Botão NEXT (direita) */}
+
 <button
   onClick={nextSlide}
   className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-black/40 hover:bg-black/60 text-white p-3 rounded-full cursor-pointer"

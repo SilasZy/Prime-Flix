@@ -3,7 +3,6 @@ import { MdSearch, MdApps, MdPerson, MdSettings, MdTv } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { Loading } from "./components/Loading";
 import { RxHamburgerMenu } from "react-icons/rx";
-import { MdHome } from "react-icons/md";
 import { MdMovie } from "react-icons/md";
 const API_KEY = "d6cd063195f11b2ccd29dd8d8929b3f4";
 
@@ -109,26 +108,28 @@ useEffect(() => {
                  
                   <h1 className="text-white font-bold text-2xl mb-4">Prime-flix</h1>
 
+                 
+          
+                       <Link to="/">
 
                   <div className="flex flex-row gap-2">
-                    <MdHome height={20} />
-                    <Link to="/" className="block text-white hover:text-gray-300 font-medium mb-4 text-sm">
-                      Início
-                    </Link>
-                  </div>
-             
-                   <div className="flex flex-row gap-2">
                     <MdMovie height={20} />
-                    <Link to="/" className="block text-white hover:text-gray-300 font-medium mb-4 text-sm">
-                     Filmes
-                    </Link>
+                    <span className="block text-white hover:text-gray-300 font-medium mb-4 text-sm">
+                      Filmes
+                    </span>
                   </div>
-                    <div className="flex flex-row gap-2">
+             </Link>
+              
+               
+                       <Link to="/series">
+
+                  <div className="flex flex-row gap-2">
                     <MdTv height={20} />
-                    <Link to="/series" className="block text-white hover:text-gray-300 font-medium mb-4 text-sm">
+                    <span className="block text-white hover:text-gray-300 font-medium mb-4 text-sm">
                       Séries
-                    </Link>
+                    </span>
                   </div>
+             </Link>
 
   <div className="flex flex-row gap-2 mt-5">
  
@@ -207,10 +208,7 @@ useEffect(() => {
          
           <Link to="/" className=" text-lg text-white hover:text-gray-300 font-medium">
             Prime-Flix
-          </Link>
-          <Link to="/" className=" hidden md:block text-white hover:bg-[#e5e6e7] hover:text-black font-medium rounded-md px-2 py-2 text-center">
-            Início
-          </Link>
+          </Link>     
           <Link to="/" className=" hidden md:block text-white hover:bg-[#e5e6e7] hover:text-black font-medium rounded-md px-2 py-2 text-center">
             Filmes
           </Link>
@@ -286,14 +284,14 @@ useEffect(() => {
             </div>
           )}
 
-          <Link to="/apps" className=" hidden md:block text-white hover:text-gray-300 ">
+          <Link to="/" className=" hidden md:block text-white hover:text-gray-300 ">
             <MdApps size={15} />
           </Link>
-          <Link to="/profile" className=" hidden md:block text-white hover:text-gray-300">
+          <Link to="/" className=" hidden md:block text-white hover:text-gray-300">
             <MdSettings size={15} />
           </Link>
           <div className="hidden md:block bg-blue-600 p-2 rounded-full hover:border-4 transition-colors">
-            <Link to="/profile" className="text-[#c1dce7] hover:text-gray-300">
+            <Link to="/" className="text-[#c1dce7] hover:text-gray-300">
               <MdPerson size={15} />
             </Link>
           </div>

@@ -159,8 +159,8 @@ export const Detalhes = () => {
                 alt={actor.name}
                 className="rounded-lg mx-auto mb-2 w-full h-auto"
               />
-              <p className="text-sm text-white truncate">{actor.name}</p>
-              <p className="text-sm text-gray-500 truncate">{actor.character}</p>
+<p className="text-sm text-white break-words max-w-[180px]">{actor.name}</p>
+<p className="text-sm text-gray-500 break-words max-w-[180px]">{actor.character}</p>
         
             </div>
           ))}

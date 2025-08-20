@@ -25,9 +25,9 @@
             // const movieId = (Id: number) => movieId;
  // Defina a página atual
 
-     const aleatoryPage = Math.floor(Math.random() * 10) + 1; // Gera um número aleatório entre 1 e 10
+     const aleatoryPage = Math.floor(Math.random() * 10) + 1; 
 
-     //funcao pra serie mais votada
+   
    
             const API_KEY = 'd6cd063195f11b2ccd29dd8d8929b3f4';
             const response = await fetch(`https://api.themoviedb.org/3/tv/popular?api_key=${API_KEY}&language=pt-BR&page=${aleatoryPage}`);
@@ -87,8 +87,9 @@ const aleatoryPage = Math.floor(Math.random() * 10) + 1;
         }
     };
 export const getSeriesGenero = async (getSeriesGenero: number) => {
+  const aleatoryPage = Math.floor(Math.random() * 10) + 1;
         try {
-            const response = await fetch(`https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&language=pt-BR&with_genres=${getSeriesGenero}`);
+            const response = await fetch(`https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&language=pt-BR&with_genres=${getSeriesGenero}&page=${aleatoryPage}`);
             if (!response.ok) {
                 throw new Error('Erro ao buscar séries');
             }
