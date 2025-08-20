@@ -151,7 +151,7 @@ useEffect(() => {
    
   </div>
   {searchTerm && (
-    <div className="absolute bottom-32 left-0 w-full bg-[#00050d] rounded-lg shadow-lg p-2 max-h-64 overflow-y-auto z-30">
+    <div className="absolute bottom-36 left-0 w-full bg-[#00050d] rounded-lg shadow-lg p-2 max-h-64 overflow-y-auto z-30">
       {searchLoading ? (
         <div className="flex justify-center">
       <p className="text-gray-400 text-sm">Pesquisando...</p>
@@ -181,6 +181,10 @@ useEffect(() => {
               )}
               <span className="text-sm truncate">
                 {item.title || item.name}
+                <span className="text-gray-400 text-xs ml-1">
+                  {item.release_date ? new Date(item.release_date).getFullYear() :
+                    item.first_air_date ? new Date(item.first_air_date).getFullYear() : 'N/A'}
+                </span>
               </span>
             </Link>
           </div>
@@ -205,7 +209,7 @@ useEffect(() => {
             Prime-Flix
           </Link>
           <Link to="/" className=" hidden md:block text-white hover:bg-[#e5e6e7] hover:text-black font-medium rounded-md px-2 py-2 text-center">
-            Iníciosdsd
+            Início
           </Link>
           <Link to="/" className=" hidden md:block text-white hover:bg-[#e5e6e7] hover:text-black font-medium rounded-md px-2 py-2 text-center">
             Filmes
