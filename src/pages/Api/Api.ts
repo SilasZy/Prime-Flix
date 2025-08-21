@@ -3,6 +3,7 @@
     try {
       // pra series coloco tv
       // pra filmes coloco movie
+      
       const response = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=pt-BR&page=1`);
             if (!response.ok) {
                 throw new Error('Erro ao buscar filmes');

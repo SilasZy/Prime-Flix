@@ -130,13 +130,13 @@ fetchComedySeries();
         loading={loading}
       />
       <CardsMovie
-        title="Mais Recentes Fantasia"
+        title="Além da Imaginação"
         items={fantasia}
         loading={loading}
       />
 
          <CardsMovie
-        title="Mais Recentes Crime"
+        title="Mundo do Crime"
         items={crime}
         loading={loading}
       />
